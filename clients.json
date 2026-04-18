@@ -1,0 +1,41 @@
+[
+  {
+    "id_number": "123456766",
+    "name": "Monica Rodriguez",
+    "phone": "3402398344",
+    "client_type": "Private",
+    "service_type": "Cleaning",
+    "quantity": 1,
+    "priority": "Normal",
+    "appointment_date": "03/05/2026",
+    "visit_fee": 80000.0,
+    "service_fee": 60000.0,
+    "total_fee": 140000.0
+  },
+  {
+    "id_number": "123456765",
+    "name": "pepito perez",
+    "phone": "3123124533",
+    "client_type": "Prepaid",
+    "service_type": "Diagnosis",
+    "quantity": 1,
+    "priority": "Normal",
+    "appointment_date": "02/05/2026",
+    "visit_fee": 30000.0,
+    "service_fee": 0.0,
+    "total_fee": 30000.0
+  },
+  {
+    "id_number": "1082928392",
+    "name": "Leimar soto",
+    "phone": "3138750446",
+    "client_type": "EPS",
+    "service_type": "Diagnosis",
+    "quantity": 1,
+    "priority": "Normal",
+    "appointment_date": "07/05/2026",
+    "visit_fee": 5000,
+    "service_fee": 0,
+    "total_fee": 5000
+  }
+]
