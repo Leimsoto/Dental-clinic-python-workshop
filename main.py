@@ -9,12 +9,7 @@ Made with love and care for learning Python programming.
 
 
 from client import Client
-from clinic import (
-    CLIENT_TYPES, SERVICE_TYPES, PRIORITIES,
-    calculate_values, total_clients, total_revenue,
-    extraction_clients, sort_by_total_fee, binary_search_by_id,
-    save_clients, load_clients,
-)
+import clinic
 
 import re
 from datetime import datetime
@@ -23,7 +18,7 @@ from datetime import datetime
 
 # Try to load saved clients from JSON at startup
 DATA_FILE = "clients.json"
-clients_list: list[Client] = load_clients(DATA_FILE)
+clients_list: list[Client] = clinic.load_clients(DATA_FILE)
 
 
 
@@ -141,16 +136,16 @@ def register_client():
         break
     c.name        = read_name()
     c.phone      = read_phone()
-    c.client_type  = select_option("Client type:", CLIENT_TYPES)
-    c.service_type = select_option("Service type:", SERVICE_TYPES)
+    c.client_type  = select_option("Client type:", clinic.CLIENT_TYPES)
+    c.service_type = select_option("Service type:", clinic.SERVICE_TYPES)
     c.quantity      = read_quantity(c.service_type)
-    c.priority     = select_option("Priority:", PRIORITIES)
+    c.priority     = select_option("Priority:", clinic.PRIORITIES)
     c.appointment_date    = read_date()
-    calculate_values(c)
+    clinic.calculate_values(c)
     clients_list.append(c)
     # auto-save after adding
     try:
-        save_clients(DATA_FILE, clients_list)
+        clinic.save_clients(DATA_FILE, clients_list)
         saved_msg = " Data saved."
     except Exception:
         saved_msg = " (warning: could not save data)."
@@ -163,10 +158,10 @@ def show_statistics():
     if len(clients_list) == 0:
         print("\nNo clients registered.")
         return
-    print("\nClinic statistics")
-    print(f"  Total clients      : {total_clients(clients_list)}")
-    print(f"  Total revenue      : ${total_revenue(clients_list):,.0f}")
-    print(f"  Extraction clients : {extraction_clients(clients_list)}")
+    print(f"\nClinic statistics")
+    print(f"  Total clients      : {clinic.total_clients(clients_list)}")
+    print(f"  Total revenue      : ${clinic.total_revenue(clients_list):,.0f}")
+    print(f"  Extraction clients : {clinic.extraction_clients(clients_list)}")
 
 
 
@@ -175,7 +170,7 @@ def show_sorted_clients():
     if len(clients_list) == 0:
         print("\nNo clients registered.")
         return
-    sort_by_total_fee(clients_list)
+    clinic.sort_by_total_fee(clients_list)
     print("\nClients sorted by total (high to low):")
     print(f"  {'ID':<12} {'Name':<25} {'Client Type':<12} {'Service':<12} {'Total':>12}")
     print("  " + "-" * 75)
@@ -190,7 +185,7 @@ def find_client():
         print("\nNo clients registered.")
         return
     id_number = input("\nEnter ID to search: ").strip()
-    result = binary_search_by_id(clients_list, id_number)
+    result = clinic.binary_search_by_id(clients_list, id_number)
     if result is None:
         print("Client not found.")
     else:
