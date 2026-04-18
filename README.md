@@ -19,6 +19,8 @@ It's a neat example for **classes, data handling, simple validation, sorting and
 
 - Input checks: phone format and date format are validated, duplicate IDs are blocked.
 - Data format: JSON file `clients.json` at project root.
+ - Data format: JSON file `clients.json` at project root.
+ - Test data: the file `test_client.json` is included as an example/test file. Before running the app, rename `test_client.json` to `clients.json` (or remove it) so the program loads the intended data file.
 - `Client` is a `@dataclass` so serializing and reading back is straightforward:
 
 
