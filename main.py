@@ -209,7 +209,7 @@ def main():
     running = True
     while running:
         print("\n" + "=" * 40)
-        print("\n| Dental Clinic - ¡Hi Dr! What would you like to do?")
+        print("\n| Dental Clinic - ¡Hi Dr. XXX! What would you like to do?")
         print("-" * 30)
         print("| 1. Register client")
         print("| 2. View statistics")
